@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, Terminal, BarChart2, CheckCircle, ShieldCheck, Zap } from "lucide-react";
 import { useLanguage } from "../LanguageContext";
 
 export default function Hero() {
   const { language, t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section
@@ -68,19 +70,19 @@ export default function Hero() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
-              <a
-                href="#ai-consultant"
-                className="font-display font-semibold text-center bg-gradient-to-r from-cyan-500 to-indigo-600 text-white px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all flex items-center justify-center gap-2 group"
+              <button
+                onClick={() => navigate("/consultant")}
+                className="font-display font-semibold text-center bg-gradient-to-r from-cyan-500 to-indigo-600 text-white px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all flex items-center justify-center gap-2 group cursor-pointer border-none"
               >
                 {t("hero.cta_consultant")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#portfolio"
-                className="font-display font-semibold text-center bg-slate-900 text-slate-200 border border-slate-800 hover:border-slate-700 hover:text-white px-8 py-4 rounded-xl transition-all"
+              </button>
+              <button
+                onClick={() => navigate("/#portfolio")}
+                className="font-display font-semibold text-center bg-slate-900 text-slate-200 border border-slate-800 hover:border-slate-700 hover:text-white px-8 py-4 rounded-xl transition-all cursor-pointer"
               >
                 {t("hero.cta_portfolio")}
-              </a>
+              </button>
             </div>
           </div>
 

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -9,101 +10,74 @@ import AiConsultant from "./components/AiConsultant";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./LanguageContext";
 
-export type TabId = "profile" | "articles" | "consultant";
+function ProfilePage() {
+  return (
+    <div className="animate-fade-in">
+      <Hero />
+      <About />
+      <Services />
+      <Portfolio />
+    </div>
+  );
+}
 
-function AppContent() {
-  const [currentTab, setCurrentTab] = useState<TabId>("profile");
+function ScrollToAnchor() {
+  const { hash } = useLocation();
 
-  // Sync state with URL hash on load or hash change to support bookmarking / SEO / AEO!
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === "#articles") {
-        setCurrentTab("articles");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else if (hash === "#ai-consultant") {
-        setCurrentTab("consultant");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else if (["#hero", "#about", "#services", "#portfolio"].includes(hash)) {
-        setCurrentTab("profile");
-        setTimeout(() => {
-          const el = document.getElementById(hash.substring(1));
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 120);
-      } else if (hash === "" || hash === "#") {
-        setCurrentTab("profile");
-      }
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    // Trigger on mount
-    handleHashChange();
-
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  const navigateToTab = (tab: TabId, anchor?: string) => {
-    setCurrentTab(tab);
-    if (anchor) {
-      window.location.hash = anchor;
+    if (hash) {
+      const id = hash.substring(1);
       setTimeout(() => {
-        const el = document.getElementById(anchor);
+        const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 120);
     } else {
-      window.location.hash = tab === "profile" ? "hero" : tab === "articles" ? "articles" : "ai-consultant";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  };
+  }, [hash]);
 
+  return null;
+}
+
+function OldHashRedirect() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === "#articles") {
+      navigate("/articles", { replace: true });
+    } else if (hash === "#ai-consultant") {
+      navigate("/consultant", { replace: true });
+    }
+  }, [navigate]);
+
+  return null;
+}
+
+function AppContent() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Dynamic Top Navigation Bar */}
-      <Navbar currentTab={currentTab} navigateToTab={navigateToTab} />
-
-      {/* Main Sections */}
+      <OldHashRedirect />
+      <ScrollToAnchor />
+      <Navbar />
       <main className="transition-all duration-300">
-        {currentTab === "profile" && (
-          <div className="animate-fade-in">
-            {/* Hero Section */}
-            <Hero />
-
-            {/* Visi, Misi & Core Architecture */}
-            <About />
-
-            {/* Services & Pillers */}
-            <Services />
-
-            {/* Portfolio Showcase */}
-            <Portfolio />
-          </div>
-        )}
-
-        {currentTab === "articles" && (
-          <div className="animate-fade-in">
-            {/* Dynamic & SEO/AEO-optimized Articles */}
-            <Articles />
-          </div>
-        )}
-
-        {currentTab === "consultant" && (
-          <div className="animate-fade-in pt-12">
-            {/* Interactive AI Sandbox Consultation */}
-            <AiConsultant />
-          </div>
-        )}
+        <Routes>
+          <Route path="/" element={<ProfilePage />} />
+          <Route path="/articles" element={<div className="animate-fade-in"><Articles /></div>} />
+          <Route path="/consultant" element={<div className="animate-fade-in pt-12"><AiConsultant /></div>} />
+        </Routes>
       </main>
-
-      {/* Footer Details */}
-      <Footer navigateToTab={navigateToTab} />
+      <Footer />
     </div>
   );
 }
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
+    <BrowserRouter>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </BrowserRouter>
   );
 }

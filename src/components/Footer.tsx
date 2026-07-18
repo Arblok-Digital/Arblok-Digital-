@@ -1,19 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Cpu, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 import { useLanguage } from "../LanguageContext";
 
-interface FooterProps {
-  navigateToTab?: (tab: "profile" | "articles" | "consultant", anchor?: string) => void;
-}
-
-export default function Footer({ navigateToTab }: FooterProps) {
+export default function Footer() {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLButtonElement>, tab: "profile" | "articles" | "consultant", anchor?: string) => {
-    e.preventDefault();
-    if (navigateToTab) {
-      navigateToTab(tab, anchor);
+  const goTo = (path: string, anchor?: string) => {
+    if (anchor) {
+      navigate(path + "#" + anchor);
+    } else {
+      navigate(path);
     }
   };
 
@@ -42,12 +41,12 @@ export default function Footer({ navigateToTab }: FooterProps) {
           <div className="space-y-4">
             <div className="flex items-center space-x-2.5">
               <button
-                onClick={(e) => handleLinkClick(e, "profile", "hero")}
+                onClick={() => goTo("/", "hero")}
                 className="flex items-center space-x-2.5 bg-transparent border-none text-left cursor-pointer p-0"
               >
                 <div className="w-8 h-8 rounded-lg overflow-hidden border border-slate-850 shadow-md">
                   <img
-                    src="/arblok_logo.jpg"
+                    src="/arblok_logo.webp"
                     alt="Logo Arblok Digital"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
@@ -78,7 +77,7 @@ export default function Footer({ navigateToTab }: FooterProps) {
             <ul className="space-y-2 text-xs sm:text-sm list-none p-0 m-0">
               <li>
                 <button
-                  onClick={(e) => handleLinkClick(e, "profile", "hero")}
+                  onClick={() => goTo("/", "hero")}
                   className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
                 >
                   {language === "id" ? "Beranda" : "Home"}
@@ -86,7 +85,7 @@ export default function Footer({ navigateToTab }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => handleLinkClick(e, "profile", "about")}
+                  onClick={() => goTo("/", "about")}
                   className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
                 >
                   {language === "id" ? "Visi & Misi" : "Vision & Mission"}
@@ -94,7 +93,7 @@ export default function Footer({ navigateToTab }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => handleLinkClick(e, "profile", "services")}
+                  onClick={() => goTo("/", "services")}
                   className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
                 >
                   {language === "id" ? "Layanan" : "Services"}
@@ -102,7 +101,7 @@ export default function Footer({ navigateToTab }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => handleLinkClick(e, "profile", "portfolio")}
+                  onClick={() => goTo("/", "portfolio")}
                   className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
                 >
                   {language === "id" ? "Portofolio" : "Portfolio"}
@@ -110,7 +109,7 @@ export default function Footer({ navigateToTab }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => handleLinkClick(e, "articles")}
+                  onClick={() => goTo("/articles")}
                   className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
                 >
                   {language === "id" ? "Artikel & Edukasi" : "Articles & Insights"}
@@ -118,7 +117,7 @@ export default function Footer({ navigateToTab }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={(e) => handleLinkClick(e, "consultant")}
+                  onClick={() => goTo("/consultant")}
                   className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
                 >
                   AI Consultant

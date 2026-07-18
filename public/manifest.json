@@ -1,0 +1,30 @@
+{
+  "name": "ARBLOK Digital | Premium Software House & Digital Agency - Tasikmalaya",
+  "short_name": "ARBLOK Digital",
+  "description": "Software house & digital agency dari Tasikmalaya. Spesialis Web Development, PWA, AI Automation, Blockchain.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait-primary",
+  "lang": "id",
+  "categories": ["business", "technology", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "display_override": ["window-controls-overlay", "standalone"]
+}

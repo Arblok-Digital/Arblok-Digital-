@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Terminal, Menu, X, ArrowUpRight, Cpu } from "lucide-react";
 import { useLanguage } from "../LanguageContext";
 
-interface NavbarProps {
-  currentTab: "profile" | "articles" | "consultant";
-  navigateToTab: (tab: "profile" | "articles" | "consultant", anchor?: string) => void;
-}
-
-export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentPath = location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +22,15 @@ export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navTo = (path: string, anchor?: string) => {
+    setIsOpen(false);
+    if (anchor) {
+      navigate(path + "#" + anchor);
+    } else {
+      navigate(path);
+    }
+  };
 
   return (
     <nav
@@ -37,12 +45,12 @@ export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => navigateToTab("profile", "hero")}
+            onClick={() => navTo("/", "hero")}
             className="flex items-center space-x-2.5 group cursor-pointer text-left bg-transparent border-none focus:outline-none"
           >
             <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-850 group-hover:rotate-6 transition-all duration-300 shadow-md">
               <img
-                src="/arblok_logo.jpg"
+                src="/arblok_logo.webp"
                 alt="Logo Arblok Digital"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
@@ -62,9 +70,9 @@ export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <button
-              onClick={() => navigateToTab("profile", "hero")}
+              onClick={() => navTo("/", "hero")}
               className={`font-sans text-sm font-medium transition-colors cursor-pointer bg-transparent border-none ${
-                currentTab === "profile"
+                currentPath === "/"
                   ? "text-cyan-400 font-semibold"
                   : "text-slate-300 hover:text-cyan-400"
               }`}
@@ -72,27 +80,27 @@ export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
               {t("nav.home")}
             </button>
             <button
-              onClick={() => navigateToTab("profile", "about")}
+              onClick={() => navTo("/", "about")}
               className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
             >
               {t("nav.vision")}
             </button>
             <button
-              onClick={() => navigateToTab("profile", "services")}
+              onClick={() => navTo("/", "services")}
               className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
             >
               {t("nav.services")}
             </button>
             <button
-              onClick={() => navigateToTab("profile", "portfolio")}
+              onClick={() => navTo("/", "portfolio")}
               className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
             >
               {t("nav.portfolio")}
             </button>
             <button
-              onClick={() => navigateToTab("articles")}
+              onClick={() => navTo("/articles")}
               className={`font-sans text-sm font-medium transition-colors cursor-pointer bg-transparent border-none ${
-                currentTab === "articles"
+                currentPath === "/articles"
                   ? "text-cyan-400 font-semibold"
                   : "text-slate-300 hover:text-cyan-400"
               }`}
@@ -100,9 +108,9 @@ export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
               {t("nav.articles")}
             </button>
             <button
-              onClick={() => navigateToTab("consultant")}
+              onClick={() => navTo("/consultant")}
               className={`font-sans text-sm font-medium transition-colors cursor-pointer bg-transparent border-none flex items-center gap-1.5 ${
-                currentTab === "consultant"
+                currentPath === "/consultant"
                   ? "text-cyan-400 font-semibold"
                   : "text-slate-300 hover:text-cyan-400"
               }`}
@@ -168,55 +176,37 @@ export default function Navbar({ currentTab, navigateToTab }: NavbarProps) {
       >
         <div className="px-4 pt-2 pb-4 space-y-3">
           <button
-            onClick={() => {
-              setIsOpen(false);
-              navigateToTab("profile", "hero");
-            }}
+            onClick={() => navTo("/", "hero")}
             className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
           >
             {t("nav.home")}
           </button>
           <button
-            onClick={() => {
-              setIsOpen(false);
-              navigateToTab("profile", "about");
-            }}
+            onClick={() => navTo("/", "about")}
             className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
           >
             {t("nav.vision")}
           </button>
           <button
-            onClick={() => {
-              setIsOpen(false);
-              navigateToTab("profile", "services");
-            }}
+            onClick={() => navTo("/", "services")}
             className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
           >
             {t("nav.services")}
           </button>
           <button
-            onClick={() => {
-              setIsOpen(false);
-              navigateToTab("profile", "portfolio");
-            }}
+            onClick={() => navTo("/", "portfolio")}
             className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
           >
             {t("nav.portfolio")}
           </button>
           <button
-            onClick={() => {
-              setIsOpen(false);
-              navigateToTab("articles");
-            }}
+            onClick={() => navTo("/articles")}
             className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
           >
             {t("nav.articles")}
           </button>
           <button
-            onClick={() => {
-              setIsOpen(false);
-              navigateToTab("consultant");
-            }}
+            onClick={() => navTo("/consultant")}
             className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800 flex items-center gap-2 bg-transparent border-none cursor-pointer"
           >
             <span className="relative flex h-2 w-2">

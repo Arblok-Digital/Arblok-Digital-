@@ -376,53 +376,51 @@
 
 ## 📊 PRIORITY MATRIX
 
-| Phase | Effort | SEO/IEO Impact | Complexity | Risk | Kerjain Kapan |
-|-------|--------|----------------|------------|------|---------------|
-| P1.1 - 3 SEO files | 15 min | 🔥🔥🔥🔥🔥 | Easy | None | **SEKARANG** |
-| P1.2 - Headers | 5 min | 🔥🔥🔥 | Easy | None | **SEKARANG** |
-| P1.3 - Meta fallback | 15 min | 🔥🔥🔥🔥 | Easy | None | **SEKARANG** |
-| P1.4 - OG Image | 30 min | 🔥🔥🔥🔥 | Easy | None | **HARI INI** |
-| P2.1 - Testimonials | 1-2 jam | 🔥🔥🔥🔥 | Medium | Low | **MINGGU INI** |
-| P2.2 - FAQ schema | 30 min | 🔥🔥🔥🔥🔥 | Easy | None | **MINGGU INI** |
-| P2.4 - Articles | 1-2 jam | 🔥🔥🔥🔥🔥 | Easy | None | **MINGGU INI** |
-| P3.1 - DRY backend | 2-3 jam | 🧊 (opsional) | Medium | Medium | Next sprint |
-| P3.3 - Error boundary | 30 min | 🧊 | Easy | None | Next sprint |
-| P5.1 - React Router | 3-5 jam | 🔥🔥🔥🔥🔥 | Hard | Medium | Stabil dulu |
-| P5.2 - PWA | 2-4 jam | 🔥🔥🔥 | Medium | Low | Stabil dulu |
-| P6 - Testing | ongoing | 🧊 (indirect) | Medium | None | Ongoing |
+| Phase | Effort | SEO/IEO Impact | Complexity | Risk | Status |
+|-------|--------|----------------|------------|------|--------|
+| P1.1 - 3 SEO files | 15 min | 🔥🔥🔥🔥🔥 | Easy | None | ✅ DONE |
+| P1.2 - Headers | 5 min | 🔥🔥🔥 | Easy | None | ✅ DONE |
+| P1.3 - Meta fallback | 15 min | 🔥🔥🔥🔥 | Easy | None | ✅ DONE |
+| P1.4 - OG Image | 30 min | 🔥🔥🔥🔥 | Easy | None | ✅ DONE |
+| P2.1 - Testimonials | 1-2 jam | 🔥🔥🔥🔥 | Medium | Low | ✅ DONE (Review schema in index.html + Portfolio baked in) |
+| P2.2 - FAQ schema | 30 min | 🔥🔥🔥🔥🔥 | Easy | None | ✅ DONE (in index.html) |
+| P2.3 - Breadcrumb schema | 10 min | 🔥🔥🔥 | Easy | None | ✅ DONE (in index.html) |
+| P2.4 - Articles (6 total) | 1-2 jam | 🔥🔥🔥🔥🔥 | Easy | None | ✅ DONE (6 articles bilingual) |
+| P3.1 - DRY backend | 2-3 jam | 🧊 (opsional) | Medium | Medium | ⬜ PENDING |
+| P3.2 - Extract portfolio | 1 jam | 🧊 | Easy | None | ⬜ PENDING |
+| P3.3 - Error boundary | 30 min | 🧊 | Easy | None | ⬜ PENDING |
+| P4.1 - Stats counter | 1-2 jam | 🔥🔥🔥 | Medium | Low | ⬜ PENDING |
+| P4.2 - Schedule CTA | 30 min | 🔥🔥🔥 | Easy | None | ⬜ PENDING |
+| P5.1 - React Router | 3-5 jam | 🔥🔥🔥🔥🔥 | Hard | Medium | ⭐ **BESOK** |
+| P5.2 - PWA manifest + SW | 2-4 jam | 🔥🔥🔥🔥 | Medium | Low | ⭐ **BESOK** |
+| P5.3 - Google My Business | 2-3 jam | 🔥🔥🔥🔥 | Easy | None | ⭐ **BESOK** |
+| P5.4 - hreflang tags | 30 min | 🔥🔥🔥 | Easy | None | ⭐ **BESOK** |
+| P6.3 - GA4 + Search Console | 1 jam | 🔥🔥🔥🔥 | Easy | None | ⭐ **BESOK** |
+| P6 - E2E Testing | ongoing | 🧊 (indirect) | Medium | None | Q3 Planning |
 
 **🔥 = SEO/IEO langsung naik**
 **🧊 = Developer experience / code quality**
 
 ---
 
-## 🚦 PRIORITAS EKSEKUSI — YANG HARUS DIKERJAIN
+## 🚦 PRIORITAS EKSEKUSI — NEXT SPRINT (18 Juli 2026)
 
-### KALAU CUMA PUNYA 30 MENIT:
-1. ❗ robots.txt + sitemap.xml + llms.txt (Phase 1.1)
-2. ❗ vercel.json headers (Phase 1.2)
+> **AUDIT 17 Juli 2026**: Phase 1-2 DONE. Phase 3 technical debt pending. Fokus sekarang: React Router (SEO game changer), PWA, hreflang, GMB, GA4.
 
-### KALAU PUNYA 2 JAM:
-3. ❗ Meta fallback index.html (Phase 1.3)
-4. ❗ OG image branded (Phase 1.4)
+### TARGET BESOK (18 Jul) — SEO BIG WINS:
+1. ⭐ **React Router migration** (Phase 5.1) — Hash `/` ke path `/` routing. Setiap halaman punya URL unique, Google index 5+ pages bukan cuma 1.
+2. ⭐ **PWA manifest + service worker** (Phase 5.2) — Google PWA badge, mobile-first boost, offline support.
+3. ⭐ **hreflang tags** — Tambah `<link rel="alternate" hreflang="en">` di index.html + dynamic injection per page
+4. ⭐ **Google My Business** — Klaim listing, optimasi maps "software house Tasikmalaya"
+5. ⭐ **GA4 + Search Console** — Setup tracking, submit sitemap
 
-### KALAU PUNYA 1 HARI:
-5. ❗ Testimonials + Review schema (Phase 2.1)
-6. ❗ FAQPage schema homepage (Phase 2.2)
-7. ❗ 2-3 articles baru (Phase 2.4)
-8. ❗ Error boundary (Phase 3.3)
-
-### KALAU PUNYA 1 MINGGU:
-9. ⬜ DRY backend refactor (Phase 3.1)
-10. ⬜ Extract portfolio data (Phase 3.2)
-11. ⬜ Stats counter section (Phase 4.1)
-12. ⬜ Schedule CTA (Phase 4.2)
-
-### KALAU PUNYA 2-4 MINGGU:
-13. ⭐ React Router migration (Phase 5.1)
-14. ⭐ PWA manifest + SW (Phase 5.2)
-15. ⭐ Google My Business (Phase 5.3)
-16. ⭐ Analytics + monitoring setup (Phase 6)
+### TARGET MINGGU INI (18-24 Jul):
+6. ⬜ DRY backend refactor (Phase 3.1) — Extract `ai-providers.ts`
+7. ⬜ Extract portfolio data (Phase 3.2)
+8. ⬜ Error boundary (Phase 3.3)
+9. ⬜ Stats counter section (Phase 4.1)
+10. ⬜ Schedule CTA (Phase 4.2)
+11. ⬜ Logo compress ke WebP (~648KB → ~50KB)
 
 ---
 
@@ -465,7 +463,8 @@ Kalau berinteraksi dengan Ardi (owner):
 ---
 
 **Generated**: 17 Juli 2026
-**Last updated by**: Hermes Agent (Nous Research)
+**Last updated by**: Marketing Audit Session (17 Jul 2026, 23:30 WIB)
 **Owner**: Ardi — Arblok Digital
+**Next action**: React Router + PWA + hreflang (besok gas! 😴)
 
 > "Dari nol membangun, dari keresahan menjadi karya. Gas terus bro!" 🔥
