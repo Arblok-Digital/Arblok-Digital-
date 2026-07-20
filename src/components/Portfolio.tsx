@@ -14,6 +14,41 @@ export default function Portfolio() {
 
   const portfolioItems: PortfolioItem[] = language === "id" ? [
     {
+      id: "solana-warung",
+      title: "Solana Warung",
+      category: "Web3 & Blockchain",
+      description: "Platform e-commerce Web3 mikro-pembayaran yang mengintegrasikan perdagangan retail tradisional dengan teknologi blockchain. Solusi pembayaran tanpa batas dunia.",
+      badge: "Top 100 Global Google Comp.",
+      status: "Production-ready",
+      techStack: ["React", "Solana Web3.js", "Anchor Protocol", "Tailwind", "Durable Storage"],
+      features: [
+        "Meraih penghargaan Top 100 Global dalam kompetisi inovasi Google (Google Developer Groups)",
+        "Mikro-pembayaran instan dengan biaya gas transaksi mendekati nol",
+        "Verifikasi kepemilikan kupon belanja berbasis token digital",
+        "Pencatatan inventori warung terenkripsi dan transparan"
+      ],
+      image: "/portfolio/solana-warung.jpg",
+      certificateUrl: "https://goo.gle/jvc-cert-verifier",
+      credentialId: "JVC2605-N74Z-Y7DN"
+    },
+    {
+      id: "sekolah-rapi",
+      title: "SekolahRapi",
+      category: "Web Application",
+      description: "Platform administrasi & keuangan sekolah paling praktis se-Indonesia. Pendaftaran siswa online tanpa antri, manajemen SPP otomatis, dan laporan keuangan real-time — semua dari HP, bahkan tanpa internet. Offline-ready, multi-sekolah, gratis selamanya. Solusi digitalisasi sekolah yang bikin yayasan dan bendahara bernafas lega.",
+      badge: "Fintech Edukasi",
+      status: "Production-ready",
+      techStack: ["Next.js", "PWA", "PostgreSQL", "Offline-first", "Multi-tenant"],
+      features: [
+        "Pendaftaran siswa online dengan formulir digital + tracking pembayaran otomatis",
+        "Manajemen SPP otomatis — tunggakan terdeteksi, laporan siap cetak tiap bulan",
+        "Dashboard keuangan real-time untuk owner/yayasan dari mana saja",
+        "Offline-ready — input transaksi tanpa internet, auto-sync pas online"
+      ],
+      link: "https://sekolah-rapi.vercel.app/",
+      image: "/portfolio/sekolah-rapi.jpg"
+    },
+    {
       id: "e-warga",
       title: "E-Warga",
       category: "Web Application",
@@ -99,24 +134,6 @@ export default function Portfolio() {
       image: "/portfolio/onyx.jpg"
     },
     {
-      id: "solana-warung",
-      title: "Solana Warung",
-      category: "Web3 & Blockchain",
-      description: "Platform e-commerce Web3 mikro-pembayaran yang mengintegrasikan perdagangan retail tradisional dengan teknologi blockchain. Solusi pembayaran tanpa batas dunia.",
-      badge: "Top 100 Global Google Comp.",
-      status: "Production-ready",
-      techStack: ["React", "Solana Web3.js", "Anchor Protocol", "Tailwind", "Durable Storage"],
-      features: [
-        "Meraih penghargaan Top 100 Global dalam kompetisi inovasi Google (Google Developer Groups)",
-        "Mikro-pembayaran instan dengan biaya gas transaksi mendekati nol",
-        "Verifikasi kepemilikan kupon belanja berbasis token digital",
-        "Pencatatan inventori warung terenkripsi dan transparan"
-      ],
-      image: "/portfolio/solana-warung.jpg",
-      certificateUrl: "https://goo.gle/jvc-cert-verifier",
-      credentialId: "JVC2605-N74Z-Y7DN"
-    },
-    {
       id: "coordination",
       title: "CoordinationApp",
       category: "Web Application",
@@ -131,25 +148,43 @@ export default function Portfolio() {
         "Log aktivitas terenkripsi untuk keamanan informasi internal"
       ],
       image: "/portfolio/coordination.jpg"
+    }
+  ] : [
+    {
+      id: "solana-warung",
+      title: "Solana Warung",
+      category: "Web3 & Blockchain",
+      description: "Web3 retail e-commerce platform integrating traditional brick-and-mortar stores with blockchain micro-payments. Borderless, friction-free checkout.",
+      badge: "Top 100 Global - Google Comp.",
+      status: "Production-ready",
+      techStack: ["React", "Solana Web3.js", "Anchor Protocol", "Tailwind", "Durable Storage"],
+      features: [
+        "Awarded Top 100 Global in Google's worldwide developer competition (Google Developer Groups)",
+        "Instant Web3 micro-transactions with near-zero gas fees",
+        "Digital discount coupon ownership verified on-chain via tokens",
+        "Encrypted, fully decentralized merchant inventory registers"
+      ],
+      image: "/portfolio/solana-warung.jpg",
+      certificateUrl: "https://goo.gle/jvc-cert-verifier",
+      credentialId: "JVC2605-N74Z-Y7DN"
     },
     {
       id: "sekolah-rapi",
       title: "SekolahRapi",
       category: "Web Application",
-      description: "Platform administrasi & keuangan sekolah paling praktis se-Indonesia. Pendaftaran siswa online tanpa antri, manajemen SPP otomatis, dan laporan keuangan real-time — semua dari HP, bahkan tanpa internet. Offline-ready, multi-sekolah, gratis selamanya. Solusi digitalisasi sekolah yang bikin yayasan dan bendahara bernafas lega.",
-      badge: "Fintech Edukasi",
+      description: "The most practical school administration & financial platform in Indonesia. Online student registration with zero queuing, automated SPP tracking, and real-time financial reports — all from your phone, even offline. Offline-ready, multi-school, and free forever. The digital transformation solution that makes school foundations and treasurers breathe easy.",
+      badge: "EduTech Fintech",
       status: "Production-ready",
       techStack: ["Next.js", "PWA", "PostgreSQL", "Offline-first", "Multi-tenant"],
       features: [
-        "Pendaftaran siswa online dengan formulir digital + tracking pembayaran otomatis",
-        "Manajemen SPP otomatis — tunggakan terdeteksi, laporan siap cetak tiap bulan",
-        "Dashboard keuangan real-time untuk owner/yayasan dari mana saja",
-        "Offline-ready — input transaksi tanpa internet, auto-sync pas online"
+        "Online student registration with digital forms + automated payment tracking",
+        "Automated SPP management — overdue detection, monthly reports ready to print",
+        "Real-time financial dashboard for owners/foundations from anywhere",
+        "Offline-ready — input transactions without internet, auto-sync when online"
       ],
       link: "https://sekolah-rapi.vercel.app/",
       image: "/portfolio/sekolah-rapi.jpg"
-    }
-  ] : [
+    },
     {
       id: "e-warga",
       title: "E-Warga",
