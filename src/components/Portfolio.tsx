@@ -14,6 +14,40 @@ export default function Portfolio() {
 
   const portfolioItems: PortfolioItem[] = language === "id" ? [
     {
+      id: "sekolah-rapi",
+      title: "SekolahRapi",
+      category: "Web Application",
+      description: "Platform administrasi & keuangan sekolah paling praktis se-Indonesia. Pendaftaran siswa online tanpa antri, manajemen SPP otomatis, dan laporan keuangan real-time — semua dari HP, bahkan tanpa internet. Offline-ready, multi-sekolah, gratis selamanya. Solusi digitalisasi sekolah yang bikin yayasan dan bendahara bernafas lega.",
+      badge: "Fintech Edukasi",
+      status: "Production-ready",
+      techStack: ["Next.js", "PWA", "PostgreSQL", "Offline-first", "Multi-tenant"],
+      features: [
+        "Pendaftaran siswa online dengan formulir digital + tracking pembayaran otomatis",
+        "Manajemen SPP otomatis — tunggakan terdeteksi, laporan siap cetak tiap bulan",
+        "Dashboard keuangan real-time untuk owner/yayasan dari mana saja",
+        "Offline-ready — input transaksi tanpa internet, auto-sync pas online"
+      ],
+      link: "https://sekolah-rapi.vercel.app/",
+      image: "/portfolio/sekolah-rapi.jpg"
+    },
+    {
+      id: "sekolah-pro",
+      title: "SekolahPro",
+      category: "Web Application",
+      description: "Sistem Informasi Akademik & Manajemen Sekolah terpadu untuk efisiensi administrasi, guru, siswa, dan orang tua. Transformasi ekosistem pendidikan ke era digital.",
+      badge: "SaaS EduTech",
+      status: "Production-ready",
+      techStack: ["React", "Node.js", "PostgreSQL", "Role-based Auth", "Student Ledger"],
+      features: [
+        "Portal interaktif guru, siswa, dan wali murid dalam satu sistem",
+        "Manajemen keuangan sekolah, SPP, dan tagihan terintegrasi",
+        "Input nilai rapor kurikulum merdeka & rekap absen otomatis",
+        "Sistem pengumuman massal berbasis WhatsApp/SMS Gateway"
+      ],
+      link: "https://sekolah-pro.vercel.app/",
+      image: "/portfolio/sekolah-pro.jpg"
+    },
+    {
       id: "solana-warung",
       title: "Solana Warung",
       category: "Web3 & Blockchain",
@@ -30,23 +64,6 @@ export default function Portfolio() {
       image: "/portfolio/solana-warung.jpg",
       certificateUrl: "https://goo.gle/jvc-cert-verifier",
       credentialId: "JVC2605-N74Z-Y7DN"
-    },
-    {
-      id: "sekolah-rapi",
-      title: "SekolahRapi",
-      category: "Web Application",
-      description: "Platform administrasi & keuangan sekolah paling praktis se-Indonesia. Pendaftaran siswa online tanpa antri, manajemen SPP otomatis, dan laporan keuangan real-time — semua dari HP, bahkan tanpa internet. Offline-ready, multi-sekolah, gratis selamanya. Solusi digitalisasi sekolah yang bikin yayasan dan bendahara bernafas lega.",
-      badge: "Fintech Edukasi",
-      status: "Production-ready",
-      techStack: ["Next.js", "PWA", "PostgreSQL", "Offline-first", "Multi-tenant"],
-      features: [
-        "Pendaftaran siswa online dengan formulir digital + tracking pembayaran otomatis",
-        "Manajemen SPP otomatis — tunggakan terdeteksi, laporan siap cetak tiap bulan",
-        "Dashboard keuangan real-time untuk owner/yayasan dari mana saja",
-        "Offline-ready — input transaksi tanpa internet, auto-sync pas online"
-      ],
-      link: "https://sekolah-rapi.vercel.app/",
-      image: "/portfolio/sekolah-rapi.jpg"
     },
     {
       id: "e-warga",
@@ -151,6 +168,40 @@ export default function Portfolio() {
     }
   ] : [
     {
+      id: "sekolah-rapi",
+      title: "SekolahRapi",
+      category: "Web Application",
+      description: "The most practical school administration & financial platform in Indonesia. Online student registration with zero queuing, automated SPP tracking, and real-time financial reports — all from your phone, even offline. Offline-ready, multi-school, and free forever. The digital transformation solution that makes school foundations and treasurers breathe easy.",
+      badge: "EduTech Fintech",
+      status: "Production-ready",
+      techStack: ["Next.js", "PWA", "PostgreSQL", "Offline-first", "Multi-tenant"],
+      features: [
+        "Online student registration with digital forms + automated payment tracking",
+        "Automated SPP management — overdue detection, monthly reports ready to print",
+        "Real-time financial dashboard for owners/foundations from anywhere",
+        "Offline-ready — input transactions without internet, auto-sync when online"
+      ],
+      link: "https://sekolah-rapi.vercel.app/",
+      image: "/portfolio/sekolah-rapi.jpg"
+    },
+    {
+      id: "sekolah-pro",
+      title: "SekolahPro",
+      category: "Web Application",
+      description: "Integrated school information and academic portal streamlining workflows for administration, teachers, students, and parents.",
+      badge: "EduTech SaaS",
+      status: "Production-ready",
+      techStack: ["React", "Node.js", "PostgreSQL", "Role-based Auth", "Student Ledger"],
+      features: [
+        "Interactive unified portals for teachers, students, and parents",
+        "Integrated school tuition and student balance ledgers",
+        "Automated report card compiling & digital class attendance trackers",
+        "Bulk announcement channel with pre-built WhatsApp/SMS gate integrations"
+      ],
+      link: "https://sekolah-pro.vercel.app/",
+      image: "/portfolio/sekolah-pro.jpg"
+    },
+    {
       id: "solana-warung",
       title: "Solana Warung",
       category: "Web3 & Blockchain",
@@ -167,23 +218,6 @@ export default function Portfolio() {
       image: "/portfolio/solana-warung.jpg",
       certificateUrl: "https://goo.gle/jvc-cert-verifier",
       credentialId: "JVC2605-N74Z-Y7DN"
-    },
-    {
-      id: "sekolah-rapi",
-      title: "SekolahRapi",
-      category: "Web Application",
-      description: "The most practical school administration & financial platform in Indonesia. Online student registration with zero queuing, automated SPP tracking, and real-time financial reports — all from your phone, even offline. Offline-ready, multi-school, and free forever. The digital transformation solution that makes school foundations and treasurers breathe easy.",
-      badge: "EduTech Fintech",
-      status: "Production-ready",
-      techStack: ["Next.js", "PWA", "PostgreSQL", "Offline-first", "Multi-tenant"],
-      features: [
-        "Online student registration with digital forms + automated payment tracking",
-        "Automated SPP management — overdue detection, monthly reports ready to print",
-        "Real-time financial dashboard for owners/foundations from anywhere",
-        "Offline-ready — input transactions without internet, auto-sync when online"
-      ],
-      link: "https://sekolah-rapi.vercel.app/",
-      image: "/portfolio/sekolah-rapi.jpg"
     },
     {
       id: "e-warga",
