@@ -1,6 +1,8 @@
 # Arblok Digital — Project Context
 
 > Dokumen ini untuk AI assistant (atau developer baru) yang接手 project ini. Baca dulu sebelum tanya atau ngerjain apa-apa.
+>
+> **SEO/IEO Status**: Baca `SEO_CRAWLABILITY_STATUS.md` untuk status tervalidasi (canonical, llms.txt, sitemap, nav crawlability). Jangan klaim "sudah fix" tanpa validasi ke live URL production.
 
 ---
 
@@ -118,7 +120,7 @@ Arblok-Digital--main/
 
 | Component | Fungsi | Catatan |
 |-----------|--------|---------|
-| `Navbar.tsx` | Fixed nav + language switcher + mobile menu | React Router navigation (`useNavigate()`) |
+| `Navbar.tsx` | Fixed nav + language switcher + mobile menu | React Router `<Link>` (bukan `<button>`) |
 | `Hero.tsx` | Landing hero + fake code mockup + CTA | React Router for internal links |
 | `About.tsx` | Visi/Misi + monorepo narrative | Bilingual hardcoded |
 | `Services.tsx` | 4 service cards + CTA banners | Bilingual hardcoded |
@@ -188,7 +190,7 @@ Arblok-Digital--main/
 - [x] Static fallback meta tags di `index.html` — ✅
 
 
-### Yang UDAH done (AUDIT 22 JUL 2026 - SEO/IEO Fix):
+### Yang UDAH done (AUDIT 22-23 JUL 2026 - SEO/IEO Fix):
 - [x] Hapus fake Product/AggregateRating JSON-LD (risiko Google manual action) — ✅
 - [x] Breadcrumb schema: update hash URLs → path routing URLs — ✅
 - [x] Static article pages: `public/articles/[slug].html` — AI crawler readable tanpa JS — ✅
@@ -197,18 +199,27 @@ Arblok-Digital--main/
 - [x] BlogPosting + FAQPage JSON-LD baked ke static HTML — ✅
 - [x] GA4 ID (`G-GHKVV2YQE2`) — ✅
 - [x] Google Search Console verification — ✅
+- [x] Canonical mismatch fix: `vercel.json` rewrite `/articles/:slug` → `.html` — ✅
+- [x] Navbar/Footer `<button>` → `<Link>` (crawlable internal links) — ✅
+- [x] `llms.txt`: 7 artikel link ditambahkan — ✅
+- [x] React Router path routing (`/`, `/articles`, `/consultant`) — ✅
+- [x] PWA manifest + service worker — ✅
+- [x] `public/prerendered/home.html` + `consultant.html` untuk AI crawler — ✅
 
-### Yang PERLU dilakukan (POST AUDIT):
-- [ ] Add individual article routes (`/articles/:slug`) untuk SEO optimal
-- [ ] Google My Business listing — klaim + optimasi (prioritas: klaim profil bisnis Tasikmalaya di Google Maps)
-- [ ] Testimonial ASLI dari klien → ganti placeholder reviews
-- [ ] Prerender homepage (`/`) + `/consultant` untuk AI crawler
-- [ ] Run `node scripts/prerender-articles.mjs` sebelum setiap build/deploy
+### Yang PERLU dilakukan (Fase 2):
+- [ ] Schema `sameAs` tambah LinkedIn/GitHub (Knowledge Panel)
+- [ ] `LocalBusiness` schema (geo coordinates Tasikmalaya)
+- [ ] `WebSite` + `SearchAction` schema (Sitelinks Search Box)
+- [ ] `dateModified` artikel — jangan hardcode sama dengan `datePublished`
+- [ ] OG image unik per artikel
+- [ ] Google My Business listing — klaim + optimasi
 
-### Yang MANUAL:
-- [ ] GA4 ID (`G-XXXXXXXX`) — isi sendiri di `index.html`
-- [ ] Search Console verification code — isi sendiri di `index.html`
-- [ ] GMB listing — klaim Google Business Profile
+### Yang Sudah Manual (Done):
+- [x] GA4 ID (`G-GHKVV2YQE2`) — configured di `index.html`
+- [x] Search Console verification (`RkF0KYjHZOgzBy-BxiyVmGqdNUDnmqdEumhbR7uyRbw`) — configured di `index.html`
+
+### Yang Masih Manual (Belum):
+- [ ] GMB listing — klaim Google Business Profile (butuh akses Google oleh Ardi)
 
 ## 10. PRODUK / PORTFOLIO (7 ITEMS)
 
@@ -291,6 +302,6 @@ node_modules/.bin/vite --host
 
 ---
 
-**Last updated**: 17 Juli 2026
+**Last updated**: 23 Juli 2026
 **Status**: Production live, ongoing polish
 **Next priority**: GA4 setup, Search Console verification, GMB listing

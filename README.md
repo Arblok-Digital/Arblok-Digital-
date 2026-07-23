@@ -121,8 +121,8 @@ public/
 
 scripts/
 ├── prerender-articles.mjs                     ← Generate static articles + sitemap
-├── generate-sitemap.mjs                       ← Generate sitemap saja
-└── update-context.py                          ← Update PROJECT_CONTEXT.md
+├── prerender-site.mjs                         ← Generate prerendered home + consultant
+└── generate-sitemap.mjs                       ← Generate sitemap saja
 ```
 
 ---
