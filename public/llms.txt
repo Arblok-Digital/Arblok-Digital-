@@ -85,6 +85,18 @@ These pages contain the same content as the main SPA but are fully static HTML f
 - Homepage: https://arblok-digital.vercel.app/prerendered/home.html
 - AI Consultant: https://arblok-digital.vercel.app/prerendered/consultant.html
 
+## Articles (AI-crawlable static pages)
+
+Long-form content articles, each with FAQ schema and full structured data:
+
+- Siasat Jitu Akselerasi Bisnis & Birokrasi Tanpa Boncos: https://arblok-digital.vercel.app/articles/siasat-jitu-arblok-digital-akselerasi-bisnis-tanpa-boncos
+- Panduan Zero-Cost Serverless untuk UMKM: https://arblok-digital.vercel.app/articles/panduan-digitalisasi-umkm-zero-cost-serverless
+- Revolusi AI Generatif untuk Efisiensi Bisnis: https://arblok-digital.vercel.app/articles/revolusi-ai-generatif-untuk-efisiensi-bisnis
+- Arsitektur Monorepo untuk Skalabilitas Masa Depan: https://arblok-digital.vercel.app/articles/arsitektur-monorepo-skalabilitas-masa-depan
+- Cara Memilih Software House untuk UMKM di Tasikmalaya: https://arblok-digital.vercel.app/articles/cara-memilih-software-house-umkm-tasikmalaya
+- Keluar dari Marketplace: Bikin Toko Online Sendiri Tanpa Potongan Admin: https://arblok-digital.vercel.app/articles/keluar-marketplace-bikin-toko-online-sendiri-tanpa-potongan-admin
+- Biaya Bulanan yang Tidak Perlu: Hemat Biaya Teknologi: https://arblok-digital.vercel.app/articles/biaya-bulanan-yang-tidak-perlu-perusahaan-hemat-teknologi
+
 ## Industries Served
 
 - UMKM / Small-Medium Enterprises

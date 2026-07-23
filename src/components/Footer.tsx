@@ -1,20 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Cpu, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 import { useLanguage } from "../LanguageContext";
 
 export default function Footer() {
   const { language } = useLanguage();
-  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
-
-  const goTo = (path: string, anchor?: string) => {
-    if (anchor) {
-      navigate(path + "#" + anchor);
-    } else {
-      navigate(path);
-    }
-  };
 
   const services = language === "id"
     ? [
@@ -40,9 +31,9 @@ export default function Footer() {
           {/* Column 1: Brand details */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2.5">
-              <button
-                onClick={() => goTo("/", "hero")}
-                className="flex items-center space-x-2.5 bg-transparent border-none text-left cursor-pointer p-0"
+              <Link
+                to="/#hero"
+                className="flex items-center space-x-2.5 no-underline"
               >
                 <div className="w-8 h-8 rounded-lg overflow-hidden border border-slate-850 shadow-md">
                   <img
@@ -60,7 +51,7 @@ export default function Footer() {
                     DIGITAL
                   </span>
                 </div>
-              </button>
+              </Link>
             </div>
             <p className="font-sans text-xs sm:text-sm leading-relaxed text-slate-500">
               {language === "id"
@@ -76,52 +67,34 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm list-none p-0 m-0">
               <li>
-                <button
-                  onClick={() => goTo("/", "hero")}
-                  className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
-                >
+                <Link to="/#hero" className="hover:text-cyan-400 transition-colors font-sans text-slate-400">
                   {language === "id" ? "Beranda" : "Home"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => goTo("/", "about")}
-                  className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
-                >
+                <Link to="/#about" className="hover:text-cyan-400 transition-colors font-sans text-slate-400">
                   {language === "id" ? "Visi & Misi" : "Vision & Mission"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => goTo("/", "services")}
-                  className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
-                >
+                <Link to="/#services" className="hover:text-cyan-400 transition-colors font-sans text-slate-400">
                   {language === "id" ? "Layanan" : "Services"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => goTo("/", "portfolio")}
-                  className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
-                >
+                <Link to="/#portfolio" className="hover:text-cyan-400 transition-colors font-sans text-slate-400">
                   {language === "id" ? "Portofolio" : "Portfolio"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => goTo("/articles")}
-                  className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
-                >
+                <Link to="/articles" className="hover:text-cyan-400 transition-colors font-sans text-slate-400">
                   {language === "id" ? "Artikel & Edukasi" : "Articles & Insights"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => goTo("/consultant")}
-                  className="hover:text-cyan-400 transition-colors bg-transparent border-none p-0 cursor-pointer text-left font-sans text-slate-400"
-                >
+                <Link to="/consultant" className="hover:text-cyan-400 transition-colors font-sans text-slate-400">
                   AI Consultant
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -172,7 +145,7 @@ export default function Footer() {
 
         {/* Bottom copyright banner */}
         <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
-          <p>© {currentYear} Arblok Digital. {language === "id" ? "Seluruh hak cipta dilindungi." : "All rights reserved."}</p>
+          <p>&copy; {currentYear} Arblok Digital. {language === "id" ? "Seluruh hak cipta dilindungi." : "All rights reserved."}</p>
           <div className="flex space-x-6">
             <span className="hover:text-slate-500 cursor-pointer">{language === "id" ? "Syarat & Ketentuan" : "Terms & Conditions"}</span>
             <span className="hover:text-slate-500 cursor-pointer">{language === "id" ? "Kebijakan Privasi" : "Privacy Policy"}</span>

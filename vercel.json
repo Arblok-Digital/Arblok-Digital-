@@ -12,6 +12,7 @@
     { "source": "/icon-192.png", "destination": "/icon-192.png" },
     { "source": "/icon-512.png", "destination": "/icon-512.png" },
     { "source": "/portfolio/(.*)", "destination": "/portfolio/$1" },
+    { "source": "/articles/:slug", "destination": "/articles/:slug.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

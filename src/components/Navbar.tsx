@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Terminal, Menu, X, ArrowUpRight, Cpu } from "lucide-react";
 import { useLanguage } from "../LanguageContext";
 
@@ -8,7 +8,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
   const currentPath = location.pathname;
 
   useEffect(() => {
@@ -23,15 +22,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navTo = (path: string, anchor?: string) => {
-    setIsOpen(false);
-    if (anchor) {
-      navigate(path + "#" + anchor);
-    } else {
-      navigate(path);
-    }
-  };
-
   return (
     <nav
       id="main-navbar"
@@ -44,9 +34,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <button
-            onClick={() => navTo("/", "hero")}
-            className="flex items-center space-x-2.5 group cursor-pointer text-left bg-transparent border-none focus:outline-none"
+          <Link
+            to="/#hero"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center space-x-2.5 group no-underline"
           >
             <div className="w-10 h-10 rounded-lg overflow-hidden border border-slate-850 group-hover:rotate-6 transition-all duration-300 shadow-md">
               <img
@@ -65,51 +56,51 @@ export default function Navbar() {
                 DIGITAL
               </span>
             </div>
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <button
-              onClick={() => navTo("/", "hero")}
-              className={`font-sans text-sm font-medium transition-colors cursor-pointer bg-transparent border-none ${
+            <Link
+              to="/#hero"
+              className={`font-sans text-sm font-medium transition-colors ${
                 currentPath === "/"
                   ? "text-cyan-400 font-semibold"
                   : "text-slate-300 hover:text-cyan-400"
               }`}
             >
               {t("nav.home")}
-            </button>
-            <button
-              onClick={() => navTo("/", "about")}
-              className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
+            </Link>
+            <Link
+              to="/#about"
+              className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors"
             >
               {t("nav.vision")}
-            </button>
-            <button
-              onClick={() => navTo("/", "services")}
-              className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
+            </Link>
+            <Link
+              to="/#services"
+              className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors"
             >
               {t("nav.services")}
-            </button>
-            <button
-              onClick={() => navTo("/", "portfolio")}
-              className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer bg-transparent border-none"
+            </Link>
+            <Link
+              to="/#portfolio"
+              className="font-sans text-sm text-slate-300 hover:text-cyan-400 transition-colors"
             >
               {t("nav.portfolio")}
-            </button>
-            <button
-              onClick={() => navTo("/articles")}
-              className={`font-sans text-sm font-medium transition-colors cursor-pointer bg-transparent border-none ${
+            </Link>
+            <Link
+              to="/articles"
+              className={`font-sans text-sm font-medium transition-colors ${
                 currentPath === "/articles"
                   ? "text-cyan-400 font-semibold"
                   : "text-slate-300 hover:text-cyan-400"
               }`}
             >
               {t("nav.articles")}
-            </button>
-            <button
-              onClick={() => navTo("/consultant")}
-              className={`font-sans text-sm font-medium transition-colors cursor-pointer bg-transparent border-none flex items-center gap-1.5 ${
+            </Link>
+            <Link
+              to="/consultant"
+              className={`font-sans text-sm font-medium transition-colors flex items-center gap-1.5 ${
                 currentPath === "/consultant"
                   ? "text-cyan-400 font-semibold"
                   : "text-slate-300 hover:text-cyan-400"
@@ -120,7 +111,7 @@ export default function Navbar() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
               </span>
               {t("nav.consultant")}
-            </button>
+            </Link>
           </div>
 
           {/* Right Controls & Call to Action Button */}
@@ -175,46 +166,52 @@ export default function Navbar() {
         }`}
       >
         <div className="px-4 pt-2 pb-4 space-y-3">
-          <button
-            onClick={() => navTo("/", "hero")}
-            className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
+          <Link
+            to="/#hero"
+            onClick={() => setIsOpen(false)}
+            className="w-full block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800"
           >
             {t("nav.home")}
-          </button>
-          <button
-            onClick={() => navTo("/", "about")}
-            className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
+          </Link>
+          <Link
+            to="/#about"
+            onClick={() => setIsOpen(false)}
+            className="w-full block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800"
           >
             {t("nav.vision")}
-          </button>
-          <button
-            onClick={() => navTo("/", "services")}
-            className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
+          </Link>
+          <Link
+            to="/#services"
+            onClick={() => setIsOpen(false)}
+            className="w-full block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800"
           >
             {t("nav.services")}
-          </button>
-          <button
-            onClick={() => navTo("/", "portfolio")}
-            className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
+          </Link>
+          <Link
+            to="/#portfolio"
+            onClick={() => setIsOpen(false)}
+            className="w-full block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800"
           >
             {t("nav.portfolio")}
-          </button>
-          <button
-            onClick={() => navTo("/articles")}
-            className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 bg-transparent border-none cursor-pointer"
+          </Link>
+          <Link
+            to="/articles"
+            onClick={() => setIsOpen(false)}
+            className="w-full block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800"
           >
             {t("nav.articles")}
-          </button>
-          <button
-            onClick={() => navTo("/consultant")}
-            className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800 flex items-center gap-2 bg-transparent border-none cursor-pointer"
+          </Link>
+          <Link
+            to="/consultant"
+            onClick={() => setIsOpen(false)}
+            className="w-full block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800 flex items-center gap-2"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
             </span>
             {t("nav.consultant")}
-          </button>
+          </Link>
           <div className="pt-2 px-3">
             <a
               href="https://wa.me/6289508053795"
